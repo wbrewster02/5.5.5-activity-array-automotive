@@ -52,25 +52,55 @@ class Vehicle {
         }
     }
     stop() {
+        console.log("engine is off")
         this.started = false;
     }
 
-    drive() {
-        accelerate();
-    }
-    brake() {
-        decelerate();
+    loadPassenger() {
+        if (this.loadPassenger) {
+            if(this.passenger > 0) {
+                console.log(this.passenger == 0)
+            } else {
+                console.log(this.passenger +=1);
+                this.passenger = this.passenger + 1 ;
+            }
+        }
     }
 
-    autoPark()
-    {
+    scheduleService(mileage) {
+        // if mileage is greater than 30000, time for maintenance equals true
+        if (this.mileage > 30000) {
+            console.log(this + 'is ready for maintenance')
+        }
 
     }
 
-    autoDrive()
-    {
+    class Car extends Vehicle {
+        constructor(brand, mod) {
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ', it is a ' + this.model;
+        }
+
+
+    // drive() {
+    //     accelerate();
+    // }
+    // brake() {
+    //     decelerate();
+    // }
+
+    // autoPark()
+    // {
+
+    // }
+
+    // autoDrive()
+    // {
       
-    }
+    // }
 
     typeOfVehicle(wheels) {
         if (this.numberOfWheels == 8 && 8 == wheels) {
@@ -87,5 +117,5 @@ class Vehicle {
 
 //This exports things you want to use from this "module", more info in readme
 module.exports = {
-    Vehicle
+    Vehicle 
 }
