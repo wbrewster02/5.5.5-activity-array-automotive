@@ -13,10 +13,10 @@ class Vehicle {
 
     start() {
         if (this.fuel > 0) {
-            return this.started = true;
+            this.start = true;
             console.log("engine started...!!!");
         } else {
-            return this.started = false;
+            this.start = false;
             console.log("engine cannot start...");
         }
     }
@@ -69,20 +69,15 @@ class Vehicle {
 
     scheduleService(mileage) {
         // if mileage is greater than 30000, time for maintenance equals true
-        if (this.mileage > 30000) {
-            console.log(this + 'is ready for maintenance')
+        if (mileage > 30000) {
+            this.maintenance = true;
+        } else {
+            console.log('no maintenance required')
         }
 
     }
 
-    class Car extends Vehicle {
-        constructor(brand, mod) {
-          super(brand);
-          this.model = mod;
-        }
-        show() {
-          return this.present() + ', it is a ' + this.model;
-        }
+
 
 
     // drive() {
@@ -112,6 +107,22 @@ class Vehicle {
         } else {
             console.log("Unknown type of vehicle");
         }
+    }
+}
+
+class Car extends Vehicle {
+    constructor(make, model, year, color, mileage, maxPassengers, numberOfWheels, maximumSpeed, fuel, scheduleService) {
+      super(make, model, year, color, mileage);
+      this.maxPassengers = maxPassengers;
+      this.numberOfWheels = numberOfWheels;
+      this.maximumSpeed = maximumSpeed;
+      this.fuel = fuel;
+      this.scheduleService = scheduleService;
+      this.maintenance = true
+
+    }
+    show() {
+      return this.present() + ', it is a ' + this.model;
     }
 }
 
